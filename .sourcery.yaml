@@ -1,0 +1,2 @@
+ignore:
+  - 'gilded_rose_original.py'    # Note that any strings beginning with * must be quoted

@@ -1,5 +1,7 @@
-# 11 Sep 2022
-# Hershal Notes:
+# Solution to Gilded Rose Refactoring Kata
+# Date: 11 Sep 2022
+# Author: Hershal Pandya
+# Email: hershalpandya@outlook.com
 
 
 ========================================
@@ -10,13 +12,15 @@ Refactoring strategy:
 3. Pep8 compatibility ensured by 'flake8' check.
 4. Github for versioning.
 5. Wily for monitoring code complexity with each new commit to git.
-
+6. Pls see two png plots that show progress of Cyclomatic complexity and Maintainability with subsequent git commits.
+7. After all my manual changes, I used auto-refactoring website "sourcery.ai" to get an intuition on how much it improves further.
+8. Auto-refactoring made very tiny improvements.
 
 
 ========================================
 Original version Metrics
 ========================================
-1. Radon Cyclometric complexity:
+1. Radon Cyclomatic complexity:
 
 gilded_rose_original.py
     M 8:4 GildedRose.update_quality - C (19)
@@ -37,7 +41,7 @@ Revision   │ Author         │ Date       │ Cyclomatic Complexity      │ 
 Final version Metrics
 ========================================
 
-1. Radon Cyclometric complexity:
+1. Radon Cyclomatic complexity:
 
 gilded_rose.py
     M 11:4 GildedRose.update_quality - A (4)
