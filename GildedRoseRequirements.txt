@@ -3,6 +3,53 @@
 # Wily - Code complexity/ maintainibility testing before git commit
 # Flake8 - Pep8 check. 
 
+========================================
+Original version, here are the metrics:
+========================================
+1.
+----------------------------
+Cyclometric complexity:
+----------------------------
+gilded_rose_original.py
+    M 8:4 GildedRose.update_quality - C (19)
+    C 3:0 GildedRose - C (11)
+    C 39:0 Item - A (2)
+    M 5:4 GildedRose.__init__ - A (1)
+    M 40:4 Item.__init__ - A (1)
+    M 45:4 Item.__repr__ - A (1)
+
+
+========================================
+Final version, here are the metrics:
+========================================
+
+1.
+----------------------------
+Cyclometric complexity:
+----------------------------
+[~/.../deltaq/deltaq]$radon cc gilded_rose.py -s
+gilded_rose.py
+    M 11:4 GildedRose.update_quality - A (4)
+    M 45:4 GildedRose.back - A (4)
+    C 4:0 GildedRose - A (3)
+    M 21:4 GildedRose.standard - A (2)
+    M 33:4 GildedRose.aged - A (2)
+    M 70:4 GildedRose.conj - A (2)
+    C 83:0 Item - A (2)
+    M 6:4 GildedRose.__init__ - A (1)
+    M 63:4 GildedRose.sulf - A (1)
+    M 84:4 Item.__init__ - A (1)
+    M 89:4 Item.__repr__ - A (1)
+
+ 
+2.
+----------------------------
+Wily Output
+----------------------------
+
+
+
+
 
 ======================================
 Gilded Rose Requirements Specification
