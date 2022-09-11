@@ -14,9 +14,7 @@ class GildedRose(object):
         """
         for item in self.items:
             special_item = any(i in item.name for i in self.special_cases)
-            method_name='standard'
-            if special_item:
-                method_name = item.name.lower()[:4]
+            method_name= item.name.lower()[:4] if special_item else 'standard'
             item = eval(f"self.{method_name}(item)")
         return
 
@@ -89,4 +87,4 @@ class Item:
         self.quality = quality
 
     def __repr__(self):
-        return "%s, Days: %s, Quality:%s" % (self.name, self.sell_in, self.quality)
+        return f"{self.name}, Days: {self.sell_in}, Quality:{self.quality}"
