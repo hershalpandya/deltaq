@@ -1,15 +1,23 @@
 # 11 Sep 2022
 # Hershal Notes:
-# Wily - Code complexity/ maintainibility testing before git commit
-# Flake8 - Pep8 check. 
+
 
 ========================================
-Original version, here are the metrics:
+Refactoring strategy:
 ========================================
-1.
-----------------------------
-Cyclometric complexity:
-----------------------------
+1. Create tests for all cases in 'test_gilded_rose.py' by using output from 'texttest_fixture.py' using old code.
+2. Make sure every iteration of new changes satisfies these tests.
+3. Pep8 compatibility ensured by 'flake8' check.
+4. Github for versioning.
+5. Wily for monitoring code complexity with each new commit to git.
+
+
+
+========================================
+Original version Metrics
+========================================
+1. Radon Cyclometric complexity:
+
 gilded_rose_original.py
     M 8:4 GildedRose.update_quality - C (19)
     C 3:0 GildedRose - C (11)
@@ -18,16 +26,19 @@ gilded_rose_original.py
     M 40:4 Item.__init__ - A (1)
     M 45:4 Item.__repr__ - A (1)
 
+2. Wily Output:
+
+Revision   │ Author         │ Date       │ Cyclomatic Complexity      │ Unique Operands            │ Maintainability Index      │ Lines of Code              │
+╞════════════╪════════════════╪════════════╪════════════════════════════╪════════════════════════════╪════════════════════════════╪═════════════════════════
+│ 1978f7d  │ Hershal Pandya │ 2022-09-11 │ 35                         │ 8                         │ 53.2974                    │ 46 (0)      
+
 
 ========================================
-Final version, here are the metrics:
+Final version Metrics
 ========================================
 
-1.
-----------------------------
-Cyclometric complexity:
-----------------------------
-[~/.../deltaq/deltaq]$radon cc gilded_rose.py -s
+1. Radon Cyclometric complexity:
+
 gilded_rose.py
     M 11:4 GildedRose.update_quality - A (4)
     M 45:4 GildedRose.back - A (4)
@@ -42,11 +53,11 @@ gilded_rose.py
     M 89:4 Item.__repr__ - A (1)
 
  
-2.
-----------------------------
-Wily Output
-----------------------------
+2. Wily Output:
 
+ Revision   │ Author         │ Date       │ Cyclomatic Complexity      │ Unique Operands            │ Maintainability Index      │ Lines of Code              │
+╞════════════╪════════════════╪════════════╪════════════════════════════╪════════════════════════════╪════════════════════════════╪════════════════════════════╡
+│ d288caf    │ Hershal Pandya │ 2022-09-11 │ 23                        │ 4                         │ 71.499                     │ 90                         │
 
 
 
