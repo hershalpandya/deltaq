@@ -12,17 +12,12 @@ class GildedRose(object):
         """ Wrapper Method.
         Calls the appropriate method after scanning item.name
         """
-
         for item in self.items:
-            special_item = any([i in item.name for i in self.special_cases])
-
+            special_item = any(i in item.name for i in self.special_cases)
+            method_name='standard'
             if special_item:
                 method_name = item.name.lower()[:4]
-                item = eval("self."+method_name+"(item)")
-                continue
-
-            item = self.standard(item)
-
+            item = eval(f"self.{method_name}(item)")
         return
 
     def standard(self, item):
@@ -31,16 +26,8 @@ class GildedRose(object):
         * Quality degrades -2 after expiry
         * 0<= Quality <=50
         """
-
-        # standard decay
         item.sell_in -= 1
-        item.quality -= 1
-
-        # expired items degrade twice as fast
-        if item.sell_in < 0:
-            item.quality -= 1
-
-        # Always 0<=item.quality<50
+        item.quality = item.quality-1 if item.sell_in>=0 else item.quality - 2
         item.quality = max(0, item.quality)
         item.quality = min(50, item.quality)
         return item
@@ -53,13 +40,8 @@ class GildedRose(object):
         ... increases twice after sell by date.
         """
         item.sell_in -= 1
-        item.quality += 1
-
-        if item.sell_in < 0:
-            item.quality += 1
-
+        item.quality = item.quality+1 if item.sell_in>=0 else item.quality+2
         item.quality = min(50, item.quality)
-
         return item
 
     def back(self, item):
@@ -69,18 +51,15 @@ class GildedRose(object):
         * quality @ Sell_in [5,10) +=2
         * quality @ Sell_in [10,inf) +=1
         """
-
         item.sell_in -= 1
-
         if item.sell_in >= 10:
             item.quality += 1
-        elif item.sell_in >= 5 and item.sell_in < 10:
+        elif item.sell_in >= 5:
             item.quality += 2
-        elif item.sell_in >= 0 and item.sell_in < 5:
+        elif item.sell_in >= 0:
             item.quality += 3
         else:
             item.quality = 0
-
         return item
 
     def sulf(self, item):
@@ -94,14 +73,8 @@ class GildedRose(object):
         """Conjured
         * Quality drops twice as fast as standard cases
         """
-
-        # standard decay
         item.sell_in -= 1
-        item.quality -= 2
-
-        # expired items degrade twice as fast
-        if item.sell_in < 0:
-            item.quality -= 2
+        item.quality = item.quality-2 if item.sell_in>=0 else item.quality-4
 
         # Always 0<=item.quality<50
         item.quality = max(0, item.quality)
