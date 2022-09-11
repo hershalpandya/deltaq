@@ -8,7 +8,7 @@ class GildedRoseTest(unittest.TestCase):
     def test_standard(self):
         items = [Item(name="+5 Dexterity Vest", sell_in=10, quality=20)]
         gilded_rose = GildedRose(items)
-        for day in range(5):
+        for _ in range(5):
             gilded_rose.update_quality()
         self.assertEqual(5, items[0].sell_in)
         self.assertEqual(15, items[0].quality)
@@ -16,7 +16,7 @@ class GildedRoseTest(unittest.TestCase):
     def test_aged(self):
         items = [Item(name="Aged Brie", sell_in=2, quality=0)]
         gilded_rose = GildedRose(items)
-        for day in range(5):
+        for _ in range(5):
             gilded_rose.update_quality()
         self.assertEqual(-3, items[0].sell_in)
         self.assertEqual(8, items[0].quality)
@@ -25,7 +25,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item(name="Backstage passes to a TAFKAL80ETC concert",
                  sell_in=15, quality=20)]
         gilded_rose = GildedRose(items)
-        for day in range(12):
+        for _ in range(12):
             gilded_rose.update_quality()
         self.assertEqual(3, items[0].sell_in)
         self.assertEqual(41, items[0].quality)
@@ -34,7 +34,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item(name="Sulfuras, Hand of Ragnaros",
                  sell_in=2, quality=80)]
         gilded_rose = GildedRose(items)
-        for day in range(5):
+        for _ in range(5):
             gilded_rose.update_quality()
         self.assertEqual(2, items[0].sell_in)
         self.assertEqual(80, items[0].quality)
@@ -48,7 +48,7 @@ class GildedRoseTest(unittest.TestCase):
         """
         items = [Item(name="Conjured Mana Cake", sell_in=3, quality=6)]
         gilded_rose = GildedRose(items)
-        for day in range(3):
+        for _ in range(3):
             gilded_rose.update_quality()
         self.assertEqual(0, items[0].sell_in)
         self.assertEqual(0, items[0].quality)

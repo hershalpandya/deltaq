@@ -14,11 +14,11 @@ class GildedRose(object):
         """
 
         for item in self.items:
-            special_item = any([i in item.name for i in self.special_cases])
+            special_item = any(i in item.name for i in self.special_cases)
 
             if special_item:
                 method_name = item.name.lower()[:4]
-                item = eval("self."+method_name+"(item)")
+                item = eval(f"self.{method_name}(item)")
                 continue
 
             item = self.standard(item)
@@ -74,9 +74,9 @@ class GildedRose(object):
 
         if item.sell_in >= 10:
             item.quality += 1
-        elif item.sell_in >= 5 and item.sell_in < 10:
+        elif item.sell_in >= 5:
             item.quality += 2
-        elif item.sell_in >= 0 and item.sell_in < 5:
+        elif item.sell_in >= 0:
             item.quality += 3
         else:
             item.quality = 0
@@ -116,4 +116,4 @@ class Item:
         self.quality = quality
 
     def __repr__(self):
-        return "%s, Days: %s, Quality:%s" % (self.name, self.sell_in, self.quality)
+        return f"{self.name}, Days: {self.sell_in}, Quality:{self.quality}"
